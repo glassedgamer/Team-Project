@@ -9,6 +9,8 @@ public class Gun : MonoBehaviour
 
     public Camera mainCam;
 
+    public LayerMask enemyLayer;
+
 
     //Calls the shoot function when the input action is called
     public void OnShoot(InputAction.CallbackContext context)
@@ -19,20 +21,18 @@ public class Gun : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
+        //Ray ray = new Ray(mainCam.transform.position, mainCam.transform.forward);
+        //Ray ray = new Ray(mainCam.transform.position, mainCam.transform.forward);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, range))
+        if (Physics.Raycast(ray, out hit, range))
         {
             GameObject objHit = hit.transform.gameObject;
 
-            Debug.Log(hit.transform.name);
-
-            /*
             if(objHit.tag == "Enemy")
             {
-                Debug.Log(hit.transform.name);
                 Destroy(objHit);
             }
-            */
         }
     }
 }

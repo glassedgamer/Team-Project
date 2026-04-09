@@ -34,11 +34,12 @@ public class EnemySpawn : MonoBehaviour
             SpawnEnemy();
         }
     }
-
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
 
         Gizmos.DrawSphere(transform.position, spawnRadius);
     }
+    */
 }
