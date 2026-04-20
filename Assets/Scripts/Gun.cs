@@ -20,6 +20,13 @@ public class Gun : MonoBehaviour
     [Header("Layers")]
     public LayerMask enemyLayer;
 
+    [Header("Object References")]
+    GameManager gm;
+
+    private void Start()
+    {
+        gm = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+    }
 
     private void Update()
     {
@@ -37,7 +44,6 @@ public class Gun : MonoBehaviour
     //Calls the shoot function when the input action is called
     public void OnShootP01(InputAction.CallbackContext context)
     {
-        print("P1 shoot");
         Shoot(crosshairP1);
     }
 
@@ -45,13 +51,11 @@ public class Gun : MonoBehaviour
     public void OnShootP02(InputAction.CallbackContext context)
     {
         Shoot(crosshairP2);
-        print("P2 shoot");
     }
 
 
     void Shoot(RectTransform crosshair)
     {
-        print("2 Shoot 2 Nite");
 
         RaycastHit hit;
 
@@ -65,22 +69,23 @@ public class Gun : MonoBehaviour
 
             print(objHit.name);
 
+            // Detects enemy
             if(objHit.tag == "Enemy")
             {
                 Destroy(objHit);
+
+                gm.SubtractEnemies();
             }
         }
     }
 
     public void OnMoveP01(InputAction.CallbackContext context)
     {
-        print("P1 movement");
         moveInput01 = context.ReadValue<Vector2>();
     }
 
     public void OnMoveP02(InputAction.CallbackContext context)
     {
-        print("P1 movement");
         moveInput02 = context.ReadValue<Vector2>();
     }
 }

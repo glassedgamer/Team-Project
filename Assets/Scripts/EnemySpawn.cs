@@ -12,6 +12,7 @@ public class EnemySpawn : MonoBehaviour
 
     private void Start()
     {
+
         SpawnZone();
     }
 
