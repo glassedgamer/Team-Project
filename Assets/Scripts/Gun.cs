@@ -72,9 +72,14 @@ public class Gun : MonoBehaviour
             // Detects enemy
             if(objHit.tag == "Enemy")
             {
-                Destroy(objHit);
+                Collider enemyCol = objHit.GetComponent<Collider>();
 
-                gm.SubtractEnemies();
+                if(enemyCol != null && enemyCol.enabled)
+                {
+                    enemyCol.enabled = false;
+                    Destroy(objHit);
+                    gm.SubtractEnemies();
+                }
             }
         }
     }
