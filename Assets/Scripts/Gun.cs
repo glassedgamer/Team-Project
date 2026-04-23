@@ -8,6 +8,9 @@ public class Gun : MonoBehaviour
     public float range = 100f;
     public float crosshairSpeed = 200f;
 
+    public int maxAmmo;
+    public int p01Ammo, p02Ammo;
+
     [Header("Crosshairs")]
     public RectTransform crosshairP1;
     public RectTransform crosshairP2;
@@ -27,6 +30,10 @@ public class Gun : MonoBehaviour
     {
         // Finds the game manager in the scene
         gm = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
+
+        // Sets both players' ammo values to max ammo value
+        p01Ammo = maxAmmo;
+        p02Ammo = maxAmmo;
     }
 
     private void Update()
@@ -45,18 +52,6 @@ public class Gun : MonoBehaviour
 
         Vector2 movementP02 = moveInput02 * crosshairSpeed * Time.deltaTime;
         crosshairP2.anchoredPosition += movementP02;
-    }
-
-    //Calls the shoot function when the input action is called
-    public void OnShootP01(InputAction.CallbackContext context)
-    {
-        Shoot(crosshairP1);
-    }
-
-    //Calls the shoot function when the input action is called
-    public void OnShootP02(InputAction.CallbackContext context)
-    {
-        Shoot(crosshairP2);
     }
 
     // Sends out raycasts and stuff. RectTransform is to reference the UI images
@@ -93,6 +88,59 @@ public class Gun : MonoBehaviour
                 }
             }
         }
+
+        // Checks which player crosshair is being referenced and subtracting from that player's ammo
+        if (crosshair == crosshairP1)
+        {
+            p01Ammo--;
+            print("Player 1 Ammo: " + p01Ammo);
+        }
+        else if (crosshair == crosshairP2)
+        {
+            p02Ammo--;
+            print("Player 2 Ammo: " + p02Ammo);
+        }
+    }
+
+    void ReloadP01()
+    {
+        p01Ammo = maxAmmo;
+        print(p01Ammo);
+    }
+
+    void ReloadP02()
+    {
+        p02Ammo = maxAmmo;
+        print(p02Ammo);
+    }
+
+    //Calls the shoot function when the input action is called
+    public void OnShootP01(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+            if(p01Ammo > 0)
+                Shoot(crosshairP1);
+    }
+
+    //Calls the shoot function when the input action is called
+    public void OnShootP02(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            if(p02Ammo > 0)
+                Shoot(crosshairP2);
+    }
+
+    public void OnReloadP01(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            ReloadP01();
+    }
+
+    //Calls the shoot function when the input action is called
+    public void OnReloadtP02(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            ReloadP02();
     }
 
     public void OnMoveP01(InputAction.CallbackContext context)

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 18755d56bc9db9641a4333ac42f1e8df, type: 3}
+  m_Texture: {fileID: 2800000, guid: 279825056696197499d9d80088f6002a, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 6f51eb9a295082846b9b98abe4301bab, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1517800f99f9fb64d83be6299876a776, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1197,6 +1197,9 @@ MonoBehaviour:
   damage: 10
   range: 1000
   crosshairSpeed: 200
+  maxAmmo: 3
+  p01Ammo: 0
+  p02Ammo: 0
   crosshairP1: {fileID: 73177210}
   crosshairP2: {fileID: 205715686}
   mainCam: {fileID: 330585545}
@@ -1292,6 +1295,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 53f88b5a-609e-4d11-9cff-bf6104ae54c7
     m_ActionName: 'Player/P02 SHOOT[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 547768228}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: OnReloadP01
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 40bea9cd-0061-4e50-befe-ce91d16c61e7
+    m_ActionName: 'Player/P01 RELOAD[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 547768228}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: OnReloadtP02
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8f87d020-2d3c-4f05-be45-8c241cfcde53
+    m_ActionName: 'Player/P02 RELOAD[/Keyboard/rightShift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
