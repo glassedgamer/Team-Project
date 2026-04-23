@@ -25,15 +25,21 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
+        // Finds the game manager in the scene
         gm = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
     }
 
     private void Update()
     {
+        // See the function right below
         CrosshairMovement();
     }
+
+    // Crosshairs can move!!!
     void CrosshairMovement()
     {
+        // Grabs the player input from both players and applies the speed. Because they're UI images, you have to create Vector2's and assign them to the images' anchored positions
+
         Vector2 movementP01 = moveInput01 * crosshairSpeed * Time.deltaTime;
         crosshairP1.anchoredPosition += movementP01;
 
@@ -53,18 +59,20 @@ public class Gun : MonoBehaviour
         Shoot(crosshairP2);
     }
 
-
+    // Sends out raycasts and stuff. RectTransform is to reference the UI images
     void Shoot(RectTransform crosshair)
     {
-
+        // Create raycast hit, and shoot it out from the crosshair's position on the screen
         RaycastHit hit;
 
         Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(null, crosshair.position);
 
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
 
+        // Detects if the raycast hits something
         if (Physics.Raycast(ray, out hit, range, enemyLayer))
         {
+            // Assigns the object hit by the raycast to a new game object (for easier reference)
             GameObject objHit = hit.transform.gameObject;
 
             print(objHit.name);
@@ -72,9 +80,17 @@ public class Gun : MonoBehaviour
             // Detects enemy
             if(objHit.tag == "Enemy")
             {
-                Destroy(objHit);
+                // Grabs the collider from the enemy
+                Collider enemyCol = objHit.GetComponent<Collider>();
 
-                gm.SubtractEnemies();
+                // Detects if enemeyCol actually exists and if its collider is turned on
+                if(enemyCol != null && enemyCol.enabled)
+                {
+                    // Turns off collider, destroys the object, and subtracts from the enemy count over in the game manager
+                    enemyCol.enabled = false;
+                    Destroy(objHit);
+                    gm.SubtractEnemies();
+                }
             }
         }
     }
