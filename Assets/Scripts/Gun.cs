@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -17,11 +16,6 @@ public class Gun : MonoBehaviour
     public RectTransform crosshairP2;
     Vector2 moveInput01;
     Vector2 moveInput02;
-
-    [Header("Ammo UI")]
-    public RawImage ammoUI;
-    public GameObject p01Container;
-    public GameObject p02Container;
 
     [Header("Camera")]
     public Camera mainCam;
@@ -40,9 +34,6 @@ public class Gun : MonoBehaviour
         // Sets both players' ammo values to max ammo value
         p01Ammo = maxAmmo;
         p02Ammo = maxAmmo;
-
-        AmmoUISpawningP01();
-        AmmoUISpawningP02();
     }
 
     private void Update()
@@ -111,45 +102,15 @@ public class Gun : MonoBehaviour
         }
     }
 
-    void AmmoUISpawningP01()
-    {
-
-        for (int i = p01Container.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(p01Container.transform.GetChild(i).gameObject);
-        }
-
-        for (int i = 0; i < p01Ammo; i++)
-        {
-            Instantiate(ammoUI, p01Container.transform);
-        }
-    }
-
-    void AmmoUISpawningP02()
-    {
-        // Delete old Player 2 ammo UI
-        for (int i = p02Container.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(p02Container.transform.GetChild(i).gameObject);
-        }
-
-        for (int i = 0; i < p02Ammo; i++)
-        {
-            Instantiate(ammoUI, p02Container.transform);
-        }
-    }
-
     void ReloadP01()
     {
         p01Ammo = maxAmmo;
-        AmmoUISpawningP01();
         print(p01Ammo);
     }
 
     void ReloadP02()
     {
         p02Ammo = maxAmmo;
-        AmmoUISpawningP02();
         print(p02Ammo);
     }
 
@@ -157,43 +118,29 @@ public class Gun : MonoBehaviour
     public void OnShootP01(InputAction.CallbackContext context)
     {
         if(context.performed)
-        {
             if(p01Ammo > 0)
-            {
                 Shoot(crosshairP1);
-                AmmoUISpawningP01();
-            }
-        }
     }
 
     //Calls the shoot function when the input action is called
     public void OnShootP02(InputAction.CallbackContext context)
     {
         if (context.performed)
-        {
-            if (p02Ammo > 0)
-            {
+            if(p02Ammo > 0)
                 Shoot(crosshairP2);
-                AmmoUISpawningP02();
-            }
-        }
     }
 
     public void OnReloadP01(InputAction.CallbackContext context)
     {
         if (context.performed)
-        {
             ReloadP01();
-        }
     }
 
     //Calls the shoot function when the input action is called
     public void OnReloadtP02(InputAction.CallbackContext context)
     {
         if (context.performed)
-        {
             ReloadP02();
-        }
     }
 
     public void OnMoveP01(InputAction.CallbackContext context)
