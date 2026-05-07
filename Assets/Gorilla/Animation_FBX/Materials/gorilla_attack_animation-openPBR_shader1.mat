@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< HEAD
---- !u!114 &-8729809632775785580
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 10
-=======
->>>>>>> 3f65fcd84a70a41bb010d7d0eb444d62249bf790
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -33,12 +17,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-<<<<<<< HEAD
-  stringTagMap: {}
-=======
   stringTagMap:
     RenderType: Opaque
->>>>>>> 3f65fcd84a70a41bb010d7d0eb444d62249bf790
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -141,9 +121,7 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
-<<<<<<< HEAD
-=======
---- !u!114 &3196177904309356025
+--- !u!114 &5145665689362237524
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,4 +134,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 10
->>>>>>> 3f65fcd84a70a41bb010d7d0eb444d62249bf790
