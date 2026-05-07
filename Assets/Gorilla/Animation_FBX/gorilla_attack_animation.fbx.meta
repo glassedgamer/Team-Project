@@ -1,22 +1,14 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 guid: bd4d70229d888fb4eb3ee76ebcc4f81b
-=======
-<<<<<<< HEAD:Assets/Animation_FBX/gorilla_attack_animation.fbx.meta
-guid: c71c1dfd52c6653489854defb2a9ea72
-=======
-guid: bd4d70229d888fb4eb3ee76ebcc4f81b
->>>>>>> 4169bdd4ec4736b46d9ca89ddb00805cfed0b3d3:Assets/Gorilla/Animation_FBX/gorilla_attack_animation.fbx.meta
->>>>>>> Stashed changes
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 2
-    materialName: 0
+    materialImportMode: 1
+    materialName: 3
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -30,30 +22,16 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-<<<<<<< Updated upstream
     animationCompression: 3
-=======
-<<<<<<< HEAD:Assets/Animation_FBX/gorilla_attack_animation.fbx.meta
-    animationCompression: 1
-=======
-    animationCompression: 3
->>>>>>> 4169bdd4ec4736b46d9ca89ddb00805cfed0b3d3:Assets/Gorilla/Animation_FBX/gorilla_attack_animation.fbx.meta
->>>>>>> Stashed changes
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD:Assets/Animation_FBX/gorilla_attack_animation.fbx.meta
-    clipAnimations: []
-=======
->>>>>>> Stashed changes
     clipAnimations:
     - serializedVersion: 16
-      name: Punch
+      name: Attack
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 1
@@ -64,7 +42,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -80,12 +58,8 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
-<<<<<<< Updated upstream
-=======
->>>>>>> 4169bdd4ec4736b46d9ca89ddb00805cfed0b3d3:Assets/Gorilla/Animation_FBX/gorilla_attack_animation.fbx.meta
->>>>>>> Stashed changes
-    isReadable: 0
+      additiveReferencePoseFrame: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -93,13 +67,13 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 1
-    importVisibility: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
-    nodeNameCollisionStrategy: 1
-    fileIdsGeneration: 2
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -112,22 +86,22 @@ ModelImporter:
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
-    indexFormat: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
+    secondaryUVMarginMethod: 0
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
-    normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
@@ -146,18 +120,6 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD:Assets/Animation_FBX/gorilla_attack_animation.fbx.meta
-    hasExtraRoot: 0
-    skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
-  humanoidOversampling: 1
-  avatarSetup: 0
-=======
->>>>>>> Stashed changes
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
@@ -165,13 +127,9 @@ ModelImporter:
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
-<<<<<<< Updated upstream
-=======
->>>>>>> 4169bdd4ec4736b46d9ca89ddb00805cfed0b3d3:Assets/Gorilla/Animation_FBX/gorilla_attack_animation.fbx.meta
->>>>>>> Stashed changes
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  importBlendShapeDeformPercent: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
