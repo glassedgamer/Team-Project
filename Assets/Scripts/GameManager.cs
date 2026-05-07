@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
 
         if(zoneNum == 1)
         {
-            camTransitions.SetTrigger("SwitchCameras");
+            camTransitions.SetTrigger("Go_to_Zone02");
         }
     }
 
