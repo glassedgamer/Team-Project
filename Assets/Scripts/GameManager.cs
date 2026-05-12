@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     {
         //Instantiates prefab in the current index of zone array into Game Object
         currentZone = Instantiate(zones[zoneNum]);
-        print(enemiesLeft);
 
         //Grabs info about the current zone (look below for function)
         GetCurrentZoneInfo();
