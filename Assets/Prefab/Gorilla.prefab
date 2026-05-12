@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1984396839119164895}
   - component: {fileID: 8220793733097226098}
   - component: {fileID: 2997356747639189832}
+  - component: {fileID: 3053178091038528820}
   m_Layer: 6
   m_Name: Gorilla
   m_TagString: Enemy
@@ -67,7 +68,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084c277065dd5794db701bcff1fa70fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 3341447517359829456}
+  anim: {fileID: 3053178091038528820}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  isWalkingEnemy: 0
+  range: 3
+  attackCooldown: 1
+--- !u!95 &3053178091038528820
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531669839707244640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: bd4d70229d888fb4eb3ee76ebcc4f81b, type: 3}
+  m_Controller: {fileID: 9100000, guid: ca7fbc3cca4044c47962777df2b0a6f3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &409691085390673840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -256,16 +285,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6057140222963153312, guid: bd4d70229d888fb4eb3ee76ebcc4f81b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4d70229d888fb4eb3ee76ebcc4f81b, type: 3}
---- !u!95 &3341447517359829456 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: bd4d70229d888fb4eb3ee76ebcc4f81b, type: 3}
-  m_PrefabInstance: {fileID: 409691085390673840}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4671700737267555498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: bd4d70229d888fb4eb3ee76ebcc4f81b, type: 3}
