@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5886407490654077118}
   m_Layer: 0
   m_Name: ~~PLAYER~~
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,6 +179,9 @@ MonoBehaviour:
   p02Ammo: 0
   crosshairP1: {fileID: 0}
   crosshairP2: {fileID: 0}
+  ammoUI: {fileID: 7939782579326597482, guid: fb26b342a3ad79746a408aaa72d8e9bb, type: 3}
+  p01Container: {fileID: 0}
+  p02Container: {fileID: 0}
   mainCam: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
