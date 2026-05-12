@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -97.202
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a490e8b8ed64ec4428a49a465cee96fe, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 01272b2fa7e3b764c8a28c3edb2e9dd2, type: 2}
     - target: {fileID: 919132149155446097, guid: a490e8b8ed64ec4428a49a465cee96fe, type: 3}
       propertyPath: m_Name
       value: Textured bottle
