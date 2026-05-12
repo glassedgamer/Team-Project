@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zones:
-  - {fileID: 148326193198071226, guid: 3505f0a8c654b9c4583a6f0c1cfc003a, type: 3}
-  - {fileID: 148326193198071226, guid: 3505f0a8c654b9c4583a6f0c1cfc003a, type: 3}
+  - {fileID: 8768534779507664738, guid: 3505f0a8c654b9c4583a6f0c1cfc003a, type: 3}
+  - {fileID: 5410125432105418674, guid: 28448718124bec345bce4d8d97bce6a5, type: 3}
+  - {fileID: 6351146039673487007, guid: 68a0592b706725e4b98d4c4f0ca09d2b, type: 3}
+  - {fileID: 649920824416685406, guid: 06fb6ee9a3f4140479bf2b972249f0fe, type: 3}
   zoneNum: 0
   zoneText: {fileID: 0}
   camTransitions: {fileID: 0}
