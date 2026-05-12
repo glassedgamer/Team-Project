@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
 
     GameObject player;
+    public Animator anim;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,5 +16,10 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.LookAt(player.transform);
+    }
+
+    public void Death()
+    {
+        anim.SetTrigger("Death");
     }
 }
