@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
     GameObject player;
     public Animator anim;
 
+    public bool isWalkingEnemy;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,7 +17,18 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player.transform);
+
+        if (isWalkingEnemy)
+        {
+            anim.SetBool("isWalking", true);
+            transform.LookAt(null);
+        } 
+        else
+        {
+            anim.SetBool("isWalking", false);
+
+            transform.LookAt(player.transform);
+        }
     }
 
     public void Death()

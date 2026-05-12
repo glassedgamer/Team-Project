@@ -91,6 +91,7 @@ public class Gun : MonoBehaviour
                 if(enemyCol != null && enemyCol.enabled)
                 {
                     // Turns off collider, destroys the object, and subtracts from the enemy count over in the game manager
+                    print("Do the thing");
                     enemyCol.GetComponent<Enemy>().Death();
                     enemyCol.enabled = false;
                     gm.SubtractEnemies();
