@@ -4,16 +4,20 @@ public class PlayerGeneral : MonoBehaviour
 {
     public int maxLives, currLives;
 
+    public GameObject loseScreen;
+
     private void Start()
     {
         currLives = maxLives;
         print(currLives);
+
+        loseScreen.SetActive(false);
     }
 
     private void Update()
     {
         if (currLives <= 0)
-            print("Ded");
+            loseScreen.SetActive(true);
     }
 
     public void TakeDamage()
