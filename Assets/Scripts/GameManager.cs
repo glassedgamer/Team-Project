@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Splines;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,9 +14,9 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public Text zoneText;
 
-    [Header("Camera")]
-    //Cam Stuff
-    public Animator camTransitions;
+    [Header("Splines")]
+    public SplineAnimate animator;
+    //public SplineContainer nextSpline;
 
     bool isTransitioning = false;
 
@@ -35,8 +36,20 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Constantly checks if camera and zone text can change based on current zone
-        CameraTransitions();
         zoneText.text = "Zone " + (zoneNum + 1).ToString();
+
+        if (isTransitioning)
+        {
+            if (animator.ElapsedTime >= animator.Duration)
+            {
+                NextZone();
+            }
+        }
+    }
+
+    void Thing()
+    {
+        currentZone = Instantiate(zones[zoneNum]);
     }
 
     void GetCurrentZoneInfo()
@@ -71,17 +84,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Deals with camera transitions
-    void CameraTransitions()
-    {
-        // Gets current zone num, and will trigger the next set of cameras (references the State Driven Camera in scene)
-
-        if(zoneNum == 1)
-        {
-            camTransitions.SetTrigger("SwitchCameras");
-        }
-    }
-
     // Checks how many enemies are left in the current zone. Referenced in the Gun script
     public void SubtractEnemies()
     {
@@ -91,10 +93,9 @@ public class GameManager : MonoBehaviour
         print(enemiesLeft);
 
         // Transitions into the next zone when the amount of enemies reaches 0.
-        if (enemiesLeft <= 0 && !isTransitioning)
+        if (enemiesLeft <= 0)
         {
             isTransitioning = true;
-            NextZone();
         }
     }
 
