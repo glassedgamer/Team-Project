@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         // First zone spawn
         if (!firstZoneSpawned)
         {
-            print(firstZoneSpawned);
+
             if (animator.NormalizedTime >= 1.0f)
             {
                 print("spawn 1");
@@ -120,11 +120,9 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        zoneNum++;
-
+        NextZone();
         Destroy(currentZone);
 
-        SwitchToNewSpline();
     }
     
 
