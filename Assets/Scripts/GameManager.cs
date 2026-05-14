@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Splines;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class GameManager : MonoBehaviour
 
     [Header("Splines")]
     public SplineAnimate animator;
-    //public SplineContainer nextSpline;
+    public SplineContainer[] nextSpline;
 
+    bool firstZoneSpawned = false;
     bool isTransitioning = false;
+    bool waitingForNextZone = false;
 
     //Enemy Stuff
     int enemiesPerZone;
@@ -26,11 +29,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //Instantiates prefab in the current index of zone array into Game Object
-        currentZone = Instantiate(zones[zoneNum]);
-
         //Grabs info about the current zone (look below for function)
         GetCurrentZoneInfo();
+        SwitchToNewSpline();
     }
 
     private void Update()
@@ -38,19 +39,47 @@ public class GameManager : MonoBehaviour
         // Constantly checks if camera and zone text can change based on current zone
         zoneText.text = "Zone " + (zoneNum + 1).ToString();
 
+        // First zone spawn
+        if (!firstZoneSpawned)
+        {
+            if (animator.ElapsedTime >= animator.Duration)
+            {
+                SpawnNextZone();
+                firstZoneSpawned = true;
+            }
+
+            return;
+        }
+
+        // Wait for transition spline to finish
         if (isTransitioning)
         {
             if (animator.ElapsedTime >= animator.Duration)
             {
-                NextZone();
+                SpawnNextZone();
+
+                isTransitioning = false;
             }
         }
     }
 
-    void Thing()
+    void SpawnNextZone()
     {
+        GetCurrentZoneInfo();
+
         currentZone = Instantiate(zones[zoneNum]);
     }
+
+    public void SwitchToNewSpline()
+    {
+        // Update the target container
+        animator.Container = nextSpline[zoneNum];
+
+        // Optional: Reset animation to the beginning of the new spline
+        animator.ElapsedTime = 0f;
+        animator.Play();
+    }
+
 
     void GetCurrentZoneInfo()
     {
@@ -66,23 +95,34 @@ public class GameManager : MonoBehaviour
     {
         print("Zone Complete!!!");
 
-        // Destroys the current zone spawner in the scene
-        Destroy(currentZone);
-
         // Current zone number for the array
         zoneNum++;
 
         // Doesn't allow the zoneNum var to get larger than the array's length
         if(zoneNum < zones.Length)
         {
-            // Grabs the zone info for the new zone
-            GetCurrentZoneInfo();
-
-            // Sets the next prefab in the array to a Game Object
-            currentZone = Instantiate(zones[zoneNum]);
-            isTransitioning = false;
+            SwitchToNewSpline();
         }
     }
+
+    void StartTransition()
+    {
+        isTransitioning = true;
+
+        // Check if current zone was the final one
+        if (zoneNum >= zones.Length - 1)
+        {
+            SceneManager.LoadScene("MainMenu");
+            return;
+        }
+
+        zoneNum++;
+
+        Destroy(currentZone);
+
+        SwitchToNewSpline();
+    }
+    
 
     // Checks how many enemies are left in the current zone. Referenced in the Gun script
     public void SubtractEnemies()
@@ -95,7 +135,7 @@ public class GameManager : MonoBehaviour
         // Transitions into the next zone when the amount of enemies reaches 0.
         if (enemiesLeft <= 0)
         {
-            isTransitioning = true;
+            StartTransition();
         }
     }
 

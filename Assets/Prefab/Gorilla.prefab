@@ -73,7 +73,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   isWalkingEnemy: 0
-  range: 4
+  range: 10
   attackCooldown: 1
 --- !u!95 &3053178091038528820
 Animator:
