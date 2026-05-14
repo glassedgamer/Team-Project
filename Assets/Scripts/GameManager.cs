@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         if (!firstZoneSpawned)
         {
 
-            if (animator.NormalizedTime >= 1.0f)
+            if (animator.NormalizedTime >= 1f)
             {
                 print("spawn 1");
                 SpawnNextZone();
@@ -56,13 +56,21 @@ public class GameManager : MonoBehaviour
         // Wait for transition spline to finish
         if (isTransitioning)
         {
-            if (animator.ElapsedTime >= animator.Duration)
+            if (animator.NormalizedTime >= 1f)
             {
+                if (zoneNum >= zones.Length)
+                {
+                    SceneManager.LoadScene("MainMenu");
+                    return;
+                }
+
+
                 SpawnNextZone();
 
                 isTransitioning = false;
             }
         }
+
     }
 
     void SpawnNextZone()
@@ -80,8 +88,7 @@ public class GameManager : MonoBehaviour
         animator.Container = nextSpline[zoneNum];
 
         // Optional: Reset animation to the beginning of the new spline
-        animator.ElapsedTime = 0f;
-        animator.Play();
+        animator.Restart(true);
     }
 
 
@@ -114,14 +121,17 @@ public class GameManager : MonoBehaviour
         isTransitioning = true;
 
         // Check if current zone was the final one
-        if (zoneNum >= zones.Length - 1)
+        /* if (zoneNum >= zones.Length - 1)
         {
             SceneManager.LoadScene("MainMenu");
             return;
         }
+        */
+
+        Destroy(currentZone);
 
         NextZone();
-        Destroy(currentZone);
+
 
     }
     
