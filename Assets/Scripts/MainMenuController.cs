@@ -21,4 +21,12 @@ public class MainMenuController : MonoBehaviour
             SceneManager.LoadScene("TeamProjectLevel");
         }
     }
+
+    public void OnQuit(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Application.Quit();
+        }
+    }
 }
