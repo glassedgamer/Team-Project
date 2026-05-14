@@ -42,8 +42,10 @@ public class GameManager : MonoBehaviour
         // First zone spawn
         if (!firstZoneSpawned)
         {
-            if (animator.ElapsedTime >= animator.Duration)
+            print(firstZoneSpawned);
+            if (animator.NormalizedTime >= 1.0f)
             {
+                print("spawn 1");
                 SpawnNextZone();
                 firstZoneSpawned = true;
             }
@@ -65,6 +67,8 @@ public class GameManager : MonoBehaviour
 
     void SpawnNextZone()
     {
+        print("spawn 2");
+
         GetCurrentZoneInfo();
 
         currentZone = Instantiate(zones[zoneNum]);
