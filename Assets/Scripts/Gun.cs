@@ -13,6 +13,8 @@ public class Gun : MonoBehaviour
     public int maxAmmo;
     public int p01Ammo, p02Ammo;
 
+    public bool isGameOver = false;
+
     [Header("Crosshairs")]
     public RectTransform crosshairP1;
     public RectTransform crosshairP2;
@@ -156,7 +158,7 @@ public class Gun : MonoBehaviour
     {
         if(context.performed)
         {
-            if (p01Ammo > 0)
+            if (p01Ammo > 0 && isGameOver == false)
             {
                 Shoot(crosshairP1);
                 AmmoUIP01();
@@ -169,7 +171,7 @@ public class Gun : MonoBehaviour
     {
         if (context.performed)
         {
-            if (p02Ammo > 0)
+            if (p02Ammo > 0 && isGameOver == false)
             {
                 Shoot(crosshairP2);
                 AmmoUIP02();

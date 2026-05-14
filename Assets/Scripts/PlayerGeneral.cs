@@ -16,6 +16,8 @@ public class PlayerGeneral : MonoBehaviour
         currLives = maxLives;
         print(currLives);
 
+        gameObject.GetComponent<Gun>().isGameOver = false;
+
         loseScreen.SetActive(false);
 
         HearttUISpawn();
@@ -24,7 +26,10 @@ public class PlayerGeneral : MonoBehaviour
     private void Update()
     {
         if (currLives <= 0)
+        {
             loseScreen.SetActive(true);
+            gameObject.GetComponent<Gun>().isGameOver = true;
+        }
     }
 
     public void TakeDamage()
