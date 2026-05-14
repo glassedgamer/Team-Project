@@ -207,4 +207,10 @@ public class Gun : MonoBehaviour
     {
         moveInput02 = context.ReadValue<Vector2>();
     }
+
+    public void OnQuit(InputAction.CallbackContext context)
+    {
+        print("quitting");
+        Application.Quit();
+    }
 }

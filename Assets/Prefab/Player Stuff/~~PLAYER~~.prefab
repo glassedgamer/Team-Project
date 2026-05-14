@@ -157,6 +157,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8f87d020-2d3c-4f05-be45-8c241cfcde53
     m_ActionName: 'Player/P02 RELOAD[/Keyboard/rightShift]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5886407490654077118}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: OnReloadtP02
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b2910b1a-110e-445e-9e5c-a1c5a4fc4457
+    m_ActionName: 'Player/RESTART[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5886407490654077118}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: OnQuit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0bcec71f-c5d6-4028-8059-b7f092e458ed
+    m_ActionName: Player/QUIT
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -176,6 +208,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLives: 15
   currLives: 0
+  loseScreen: {fileID: 0}
+  heartUI: {fileID: 0}
+  heartContainer: {fileID: 0}
 --- !u!114 &5886407490654077118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +229,7 @@ MonoBehaviour:
   maxAmmo: 3
   p01Ammo: 0
   p02Ammo: 0
+  isGameOver: 0
   crosshairP1: {fileID: 0}
   crosshairP2: {fileID: 0}
   ammoUI: {fileID: 7939782579326597482, guid: fb26b342a3ad79746a408aaa72d8e9bb, type: 3}
